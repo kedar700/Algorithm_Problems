@@ -5,22 +5,37 @@ import java.util.*;
 public class FourSum {
     public static void main(String[] args) {
         int inputarray[] = {1, 0, -1, 0, -2, 2};
-        fourSum(inputarray,0);
+        System.out.println(fourSum(inputarray, 0));
     }
 
     public static List<List<Integer>> fourSum(int[] nums, int target) {
 
-        Set<List<List<Integer>>> resultset = new HashSet<List<List<Integer>>>();
+        List<List<Integer>> result = new ArrayList<>();
+        if (!(nums.length >= 0) || nums.length<4) {
+            return result;
+        }
 
-        List<Integer> resultList = new ArrayList<>();
-        for (int i =0 ; i< nums.length;  i ++){
-           int firstNumber = nums[i];
-            for (int j=0;j<nums.length; j++) {
+        Set<List<Integer>> resultSet = new HashSet<>();
+        for (int i = 0; i < nums.length; i++) {
+            int firtNumber = nums[i];
+            for (int j = 0; j < nums.length; j++) {
                 int secondNumber = nums[j];
+                for (int k = 0; k < nums.length; k++) {
+                    int thirdNumber = nums[k];
 
+                    for (int l = 0; l < nums.length; l++) {
+                        int fourthNumber = nums[l];
+                        if ((firtNumber + secondNumber + thirdNumber + fourthNumber) == target) {
+                            List<Integer> addToList = Arrays.asList(firtNumber, secondNumber, thirdNumber, fourthNumber);
+                            if (resultSet.add(addToList)) {
+                                result.add(addToList);
+                            }
+                        }
+                    }
+                }
             }
         }
 
-        return null;
+        return result;
     }
 }
