@@ -1,9 +1,6 @@
 package LeetCode;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class DuplicatesInAnArray {
     public static void main(String[] args) {
@@ -14,19 +11,25 @@ public class DuplicatesInAnArray {
     public static List<Integer> findDuplicates(int[] nums) {
         List<Integer> result = new ArrayList<>();
 
-        if (nums.length == 0 || nums == null) {
+        if (nums.length == 0) {
             return result;
         }
-
-        Set<Integer> resultSet = new HashSet<>();
-
-        for (int num : nums) {
-            if (resultSet.contains(num)) {
-                result.add(num);
-            } else {
-                resultSet.add(num);
-            }
+        int[] map = new int[nums.length + 1];
+        for (int i : nums) {
+            if (map[i] == 1) result.add(i);
+            else map[i] = 1;
         }
+
+        //old solution better than 5% people
+//        Set<Integer> resultSet = new HashSet<>();
+//
+//        for (int num : nums) {
+//            if (resultSet.contains(num)) {
+//                result.add(num);
+//            } else {
+//                resultSet.add(num);
+//            }
+//        }
 
         return result;
     }
