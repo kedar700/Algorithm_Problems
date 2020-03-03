@@ -10,12 +10,12 @@ public class FourSum {
 
     public static List<List<Integer>> fourSum(int[] nums, int target) {
 
-        List<List<Integer>> result = new ArrayList<>();
+        List<List<Integer>> result = new ArrayList();
         if (!(nums.length >= 0) || nums.length<4) {
             return result;
         }
 
-        Set<List<Integer>> resultSet = new HashSet<>();
+        Set<List<Integer>> resultSet = new HashSet();
         for (int i = 0; i < nums.length; i++) {
             int firtNumber = nums[i];
             for (int j = 0; j < nums.length; j++) {
