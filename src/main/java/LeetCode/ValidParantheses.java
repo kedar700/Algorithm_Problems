@@ -8,7 +8,7 @@ public class ValidParantheses {
     public static boolean isValid(String s) {
         if (s.length() % 2 == 1)
             return Boolean.FALSE;
-        Map<Character, Character> closing = new HashMap<Character, Character>();
+        Map<Character, Character> closing = new HashMap<>();
         closing.put('[', ']');
         closing.put('{', '}');
         closing.put('(', ')');
