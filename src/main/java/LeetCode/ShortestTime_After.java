@@ -14,7 +14,7 @@ public class ShortestTime_After {
 
     public static String solution(String S) {
 
-        List<Integer> numbersInClock = new ArrayList<>();
+        List<Integer> numbersInClock = new ArrayList<Integer>();
 
 
         String split[] = S.split("");
@@ -27,7 +27,7 @@ public class ShortestTime_After {
 
         int givenNumber = Integer.parseInt(S.replace(":", ""));
         int givenMinutes = (givenNumber / 100 * 60) + (givenNumber % 100);
-        Map<Integer, Integer> map = new HashMap<>();
+        Map<Integer, Integer> map = new HashMap<Integer, Integer>();
 
 
         for (int i = 0; i < numbersInClock.size(); i++) {
@@ -54,7 +54,7 @@ public class ShortestTime_After {
                                     int nextNumberMinutes = (nextNumber / 100 * 60) + (nextNumber % 100);
 
                                     if (nextNumber != givenNumber) {
-                                        map.putIfAbsent(nextNumber, (nextNumberMinutes - givenMinutes) % (24 * 60));
+                                        map.put(nextNumber, (nextNumberMinutes - givenMinutes) % (24 * 60));
                                     }
                                 }
                             }
