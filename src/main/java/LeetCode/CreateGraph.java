@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 
@@ -36,8 +37,7 @@ public class CreateGraph {
         words.forEach(word -> {
             char[] chars = word.toCharArray();
             List<String> transformations = graph.getOrDefault(word, new ArrayList<>());
-            Collection<String> currentWords = new ArrayList<>();
-            currentWords.addAll(words);
+            HashSet<String> currentWords = new HashSet<>(words);
             currentWords.remove(word);
             for (int i = 0; i < chars.length; i++) {
                 for (char ch = 'a'; ch <= 'z'; ch++) {
