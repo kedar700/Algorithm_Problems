@@ -30,6 +30,30 @@ public class CreateGraph {
 
     public static Map<String, List<String>> createGraph(Collection<String> words) {
         Map<String, List<String>> graph = new HashMap<>();
+        if (words.size() == 0)
+            return graph;
+
+        words.forEach(word -> {
+            char[] chars = word.toCharArray();
+            List<String> transformations = graph.getOrDefault(word, new ArrayList<>());
+            Collection<String> currentWords = new ArrayList<>();
+            currentWords.addAll(words);
+            currentWords.remove(word);
+            for (int i = 0; i < chars.length; i++) {
+                for (char ch = 'a'; ch <= 'z'; ch++) {
+                    chars[i] = ch;
+                    String newWord = new String(chars);
+                    if (currentWords.contains(newWord)) {
+                        transformations.add(newWord);
+                    }
+
+                }
+            }
+            graph.put(word, transformations);
+
+        });
+
         return graph;
     }
+
 }
