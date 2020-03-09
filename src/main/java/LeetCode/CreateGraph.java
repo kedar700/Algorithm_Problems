@@ -12,7 +12,7 @@ import java.util.Map;
 public class CreateGraph {
     public static void main(String[] args) {
         List<String> shortList = new ArrayList<>(6);
-        shortList.addAll(Arrays.asList("house", "mouse", "bat", "bait", "haft", "shaft"));
+        shortList.addAll(Arrays.asList("house", "mouse", "bot", "bat","cat","rat","mat", "bait", "haft", "shaft"));
         List<String> words = shortList;
         showGraph(createGraph(words));
     }
@@ -35,11 +35,12 @@ public class CreateGraph {
             return graph;
 
         words.forEach(word -> {
-            char[] chars = word.toCharArray();
             List<String> transformations = graph.getOrDefault(word, new ArrayList<>());
             HashSet<String> currentWords = new HashSet<>(words);
             currentWords.remove(word);
-            for (int i = 0; i < chars.length; i++) {
+            int wordLength = word.length();
+            for (int i = 0; i < wordLength; i++) {
+                char[] chars = word.toCharArray();
                 for (char ch = 'a'; ch <= 'z'; ch++) {
                     chars[i] = ch;
                     String newWord = new String(chars);
