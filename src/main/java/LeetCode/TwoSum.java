@@ -1,12 +1,19 @@
 package LeetCode;
 
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class TwoSum {
     public static void main(String[] args) {
 
+        String message = "Hello World!";
+        String newM= message.substring(6,12) + message.substring(12,6);
+        System.out.println(newM);
+
     }
+
 
     public int[] twoSum(int[] numbers, int target) {
         int[] result = new int[2];
